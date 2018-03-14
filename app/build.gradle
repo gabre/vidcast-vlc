@@ -1,0 +1,47 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "com.pavel.dolbik.castdisplay"
+        minSdkVersion 17
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'com.android.support:design:26.1.0'
+    implementation "com.android.support:mediarouter-v7:27.0.0"
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    // VLC unofficial
+    // compile 'de.mrmaffen:vlc-android-sdk:3.0.0'
+    compile "com.butterproject:vlc-android-sdk:3.0.0"
+    compile 'davidpapazian:api:0.3'
+
+    compile 'io.arrow-kt:arrow-core:0.6.0'
+    compile 'io.arrow-kt:arrow-typeclasses:0.6.0'
+    compile 'io.arrow-kt:arrow-instances:0.6.0'
+    compile 'io.arrow-kt:arrow-syntax:0.6.0'
+    kapt    'io.arrow-kt:arrow-annotations-processor:0.6.0'
+
+    compile 'pl.droidsonroids:casty:1.0.7'
+}

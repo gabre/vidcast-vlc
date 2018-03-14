@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.nuphi.vidcast">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".StreamListActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <service android:name=".vlc.OnlineStreamHUService"
+            android:permission="org.videolan.vlc.permission.READ_EXTENSION_DATA" >
+            <intent-filter>
+                <action android:name="org.videolan.vlc.Extension" />
+            </intent-filter>
+
+            <meta-data android:name="protocolVersion" android:value="1" />
+            <meta-data android:name="description" android:value="Service to watch onlinestreams.hu" />
+            <!-- A settings activity is optional -->
+            <meta-data android:name="settingsActivity" android:value=".MainActivity" />
+            <meta-data android:name="androidAutoEnabled" android:value="true" />
+        </service>
+    </application>
+</manifest>
